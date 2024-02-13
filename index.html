@@ -12,7 +12,7 @@
   <script>
     document.getElementById('login').addEventListener('click', function() {
       const clientId = '1a56f0ddf7e04b659519f1fcc5f622f8'; // Replace with your actual Spotify client ID
-      const redirectUri = encodeURIComponent(window.location.origin + '/callback');
+      const redirectUri = 'https://cjhedges93.github.io/soundcheck/callback');
       const scopes = 'user-top-read';
       window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes)}`;
     });
@@ -26,7 +26,7 @@
     function fetchAccessToken(code) {
       const clientId = '1a56f0ddf7e04b659519f1fcc5f622f8'; // Replace with your actual Spotify client ID
       const clientSecret = 'e7866a85962a4fe89139d92bfd0cb6ef'; // Replace with your actual Spotify client secret
-      const redirectUri = encodeURIComponent(window.location.origin + '/callback');
+      const redirectUri = 'https://cjhedges93.github.io/soundcheck/callback');
       
       fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
