@@ -5,6 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spotify Top Artists</title>
+  <script>
+var client_id = '1a56f0ddf7e04b659519f1fcc5f622f8';
+var redirect_uri = 'https://cjhedges93.github.io/soundcheck/callback.html';
+
+var app = express();
+
+app.get('/login', function(req, res) {
+
+  var state = generateRandomString(16);
+  var scope = 'user-read-private user-read-email';
+
+  res.redirect('https://accounts.spotify.com/authorize?' +
+    querystring.stringify({
+      response_type: 'code',
+      client_id: client_id,
+      scope: scope,
+      redirect_uri: redirect_uri,
+      state: state
+    }));
+});
+</script>
 </head>
 <body>
   <h1>Spotify Top Artists</h1>
