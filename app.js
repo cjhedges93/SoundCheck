@@ -1,4 +1,7 @@
-document.getElementById('login').addEventListener('click', function() {
-      alert('Not Possible Yet!');
-      return false
-    }
+var el = document.getElementById('login');
+el.onclick = workingOnIt;
+
+function workingOnIt() {
+      alert('Working on it!);
+      return false;
+}
