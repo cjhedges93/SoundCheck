@@ -6,30 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spotify Top Artists</title>
   <script>
-var client_id = '1a56f0ddf7e04b659519f1fcc5f622f8';
-var redirect_uri = 'https://cjhedges93.github.io/soundcheck/callback.html';
+const clientId = '1a56f0ddf7e04b659519f1fcc5f622f8'; // Replace with your Spotify client ID
+const redirectUri = 'https://cjhedges93.github.io/soundcheck/callback.html'; // Replace with your redirect URI
 
-var app = express();
+// Function to initiate the Spotify login process
+function loginToSpotify() {
+  const scopes = 'user-top-read'; // List of scopes your app needs access to
 
-app.get('/login', function(req, res) {
+  // Redirect the user to the Spotify authorization page
+  window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
+}
 
-  var state = generateRandomString(16);
-  var scope = 'user-read-private user-read-email';
+// Call the login function when needed
+loginToSpotify();
 
-  res.redirect('https://accounts.spotify.com/authorize?' +
-    querystring.stringify({
-      response_type: 'code',
-      client_id: client_id,
-      scope: scope,
-      redirect_uri: redirect_uri,
-      state: state
-    }));
-});
 </script>
 </head>
 <body>
   <h1>Spotify Top Artists</h1>
   <h2>This is the Login Page</h2>
+  <a href="javascript:loginToSpotify()">Log in</a>
   <a href="https://cjhedges93.github.io/SoundCheck">Go Back</a>
 </body>
 </html>
