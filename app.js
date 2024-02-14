@@ -3,6 +3,7 @@ var redirect_uri = 'http://localhost:8888/callback';
 
 var app = express();
 
+// log in by clicking on homepage
 document.getElementById('login') function{
 
 app.get('/login', function(req, res) {
